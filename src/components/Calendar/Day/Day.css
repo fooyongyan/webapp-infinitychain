@@ -7,7 +7,9 @@
     display: flex;
     flex-direction: column;
     padding: 0px;
+    border-radius: 3px;
 }
+
 
 .Calendar__day__selection {
     height: 100%;

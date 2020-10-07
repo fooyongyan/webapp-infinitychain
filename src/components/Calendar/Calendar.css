@@ -24,11 +24,19 @@
     border: 1px solid black;
     display: grid;
     grid-template-columns: auto auto;
-    
 }
 
-.Calendar__Controls a {
+.Calendar__Controls button{
     text-decoration: none;
+    padding: 10px;
+    font-size: large;
+    border: 0px;
+    min-width: 100px;
+    background-color: darkgray;
+    border-radius: 5px;
+}
+
+.Calendar__Controls button:hover{
     color: white;
 }
 
