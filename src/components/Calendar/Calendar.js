@@ -1,17 +1,26 @@
 import React from 'react';
 import './Calendar.css'
-import Day from './Day/Day';
+import Day from '../Day/Day';
 import moment from 'moment';
+
+/*********
+ * 
+ *  @props 
+ *  year: 
+ *  month: 
+ *  days displays
+ */
 export default function Calendar (props) {
 
     const current = moment();
     const [config, setConfig] = React.useState({
         month: props.month ? props.month : current.month() + 1, 
         year: props.year ? props.year : current.year(), 
-        days: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        days: props.days ? props.days : [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     });
 
     const begin = (moment(`${config.year}-${config.month}`));
+    
     function back() {
         let newMonth = config.month - 1;
         const newConfig = {
@@ -32,6 +41,10 @@ export default function Calendar (props) {
         setConfig(newConfig);
     }
 
+    function onDaysClicked( date, isHighlighted) {
+        console.log(date, isHighlighted);   
+    }
+
     function renderDays () {
         const daysInCalender = 42;
         let days = [];
@@ -39,13 +52,15 @@ export default function Calendar (props) {
         for ( let i = 0; i < daysInCalender ; i++ ) 
         {
             days.push( <Day 
-                            key={currMoment.toDate()} 
+                            key={i} 
                             isCurrentMonth={currMoment.month() + 1 === config.month } 
                             dateValue={currMoment.toDate()} 
                             day={currMoment.date()} 
                             month={currMoment.month()} 
                             dayOfMonth={i+1}
                             isCurrentDay = { currMoment.format("YYYY-MM-DD") === moment().format("YYYY-MM-DD") }
+                            isHighlighted = {i%2 == 0}
+                            clicked = {onDaysClicked}
                         />)
             currMoment = currMoment.clone().add(1, 'days');
         }
@@ -53,16 +68,14 @@ export default function Calendar (props) {
     }
     
     return (
-        <div className = "Calendar"> 
+        <div className = "Calendar" style = {props.style}> 
             <div className = "Calendar__header"> {begin.format("MMMM")} / {config.year} </div> 
-            <div className = "Calendar__body"> 
+            <div className = "Calendar__labels"> 
                 {config.days.map( e => <p key = {e}> {e} </p>)}
+            </div> 
+            <div className = "Calendar__body"> 
                 {renderDays()}
             </div>
-            <div className = "Calendar__Controls"> 
-                <div class = "Calendar__Controls__Back"> <button onClick = {ev => {back()}}> Back </button> </div>
-                <div class = "Calendar__Controls__Next"> <button onClick = {ev => {forward()}}> Next </button> </div>
-            </div> 
         </div>
     );
 }

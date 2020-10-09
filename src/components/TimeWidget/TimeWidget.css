@@ -1,11 +1,6 @@
 .TimeWidget {
-    font-size: 150%;
     text-align: right;
-    padding: 20px;
-    border: 1px solid black;
-    margin: 3px;
-    background-color: black;
-    color: white;
     font-weight: 100;
-    width: 800px;
+    border-bottom: 1px solid black;
+    margin: 3px;
 }
