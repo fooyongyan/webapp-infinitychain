@@ -2,7 +2,7 @@ import React from 'react';
 import './Calendar.scss'
 import Day from '../Day/Day';
 import moment from 'moment';
-
+import Header from './Header/Header'
 /*********
  * 
  *  @props 
@@ -13,11 +13,11 @@ import moment from 'moment';
 export default function Calendar (props) {
 
     const current = moment();
-    const [config, setConfig] = React.useState({
+    const config = {
         month: props.month ? props.month : current.month() + 1, 
         year: props.year ? props.year : current.year(), 
         days: props.days ? props.days : [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    });
+    };
 
     const begin = (moment(`${config.year}-${config.month}`));
     
@@ -39,17 +39,17 @@ export default function Calendar (props) {
                             month={currMoment.month()} 
                             dayOfMonth={i+1}
                             isCurrentDay = { currMoment.format("YYYY-MM-DD") === moment().format("YYYY-MM-DD") }
-                            isHighlighted = {i%2 === 0}
+                            isHighlighted = {false}
                             clicked = {onDaysClicked}
                         />)
             currMoment = currMoment.clone().add(1, 'days');
         }
         return days;
     }
-    
+
     return (
         <div className = "Calendar" style = {props.style}> 
-            <div className = "Calendar__header"> {begin.format("MMMM")} / {config.year} </div> 
+            <Header> {begin.format("MMMM")} / {config.year} </Header> 
             <div className = "Calendar__labels"> 
                 {config.days.map( e => <p key = {e}> {e} </p>)}
             </div> 

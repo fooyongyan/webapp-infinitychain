@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Calendar 
-          style = {{width: "30%", height: "30%"}}
+          style = {{width: "10%"}}
           days = {daysHeader}
       />
     </div>

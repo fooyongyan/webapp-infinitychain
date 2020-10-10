@@ -1,14 +1,33 @@
+$highlighted-color:  #FF8552;
+
 .Day {
     border: 1px solid black;
     margin: 3px;
-    background-color: lightgray;
-    display: flex;
-    flex-direction: column;
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 25px;
+    min-height: 25px;
+
+    color: lightgray;
+    background-color: darkgray;
+    
     :hover {
         font-weight: bold;
+        color: #39393A;
+    }
+
+    &__selected {
+        background-color: $highlighted-color;
         color: black;
     }
+    
+    &__currentDay {
+        border-width: 3px;
+        color: black;
+    }
+    
+    &__currentMonth {
+        color: black;
+        background-color: white;
+    }
+   
     
 }

@@ -12,15 +12,21 @@ export default function Day (props) {
         }
     }
 
-    const style = {
-        color: props.isCurrentMonth ? null : "darkgrey", 
-        border: props.isCurrentDay ? "2px solid black" : null, 
-        backgroundColor: selected ? "rgb(233, 182, 218)" : "white",
+    function getClass () {
+        const classes = ["Day"];
+        if ( selected ) {
+            classes.push("Day__selected");
+        } else {
+            if ( props.isCurrentMonth) 
+                classes.push("Day__currentMonth");
+        }
+        if ( props.isCurrentDay ) classes.push ("Day__currentDay");
+        return classes.join(' ');
     }
 
     return (
-        <div className = "Day" style={style} onClick={onDayClicked}>
-            <p style = {{width: "100%", height: "100%"}}> {props.day} </p> 
+    <div className = {getClass()} onClick={onDayClicked}>
+            <div> {props.day} </div> 
         </div>
-    );
+    ); 
 }
