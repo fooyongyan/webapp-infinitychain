@@ -12,6 +12,12 @@
     min-width: 250px;
 }
 
+.Calendar__Header {
+    padding: 5px;
+    background-color: $header-background;
+    color: $header-color;
+}
+
 .Calendar__labels {
     display: grid; 
     grid-template-columns: repeat($columnCounts, auto);
@@ -22,5 +28,5 @@
 .Calendar__body{
     display: grid; 
     grid-template-columns: repeat($columnCounts, auto);
-    grid-template-rows: repeat(6, auto);
+    height: 100%;
 }
