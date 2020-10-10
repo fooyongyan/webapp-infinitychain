@@ -1,7 +1,7 @@
 import React from 'react';
 import Day from './Day/Day';
 import moment from 'moment';
-import Calendar from '../Container/Calendar'
+import Card from '../Card/Card'
 
 /*********
  * 
@@ -11,12 +11,10 @@ import Calendar from '../Container/Calendar'
  *  days displays
  */
 export default function MonthlyCalendar (props) {
-
     const current = moment();
     const config = {
         month: props.month ? props.month : current.month() + 1, 
         year: props.year ? props.year : current.year(), 
-        days: props.days ? props.days : [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     };
     
     const begin = (moment(`${config.year}-${config.month}`));
@@ -37,7 +35,7 @@ export default function MonthlyCalendar (props) {
                             value = {currMoment}
                             dateValue={currMoment.toDate()} 
                             month={currMoment.month()} 
-                            isHighlighted = {true}
+                            isHighlighted = {false}
                             clicked = {onDaysClicked}
                             isCurrentMonth={currMoment.month() + 1 === config.month } 
                         />)
@@ -47,6 +45,6 @@ export default function MonthlyCalendar (props) {
     }
 
     return (
-        <Calendar style = {props.style} title = {`${begin.format("MMMM")} / ${config.year}`} labels={config.days}> {renderDays()}</Calendar>
+        <Card style = {props.style} title = {`${begin.format("MMMM")} / ${config.year}`} > {renderDays()}</Card>
     );
 }

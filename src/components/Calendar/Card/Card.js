@@ -1,5 +1,5 @@
 import React from 'react';
-import './Calendar.scss'
+import './Card.scss'
 import Header from './Header/Header'
 import CalendarBody from './Body/Body'
 
