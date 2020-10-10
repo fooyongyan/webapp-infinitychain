@@ -1,16 +1,10 @@
 import React from 'react';
-import MonthlyCalendar from '../components/MonthlyCalendar/MonthlyCalendar';
+import Year from '../components/calendar/Year/Year';
 import './App.scss';
 function App() {
-
-  
-  const daysHeader = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
   return (
     <div className="App">
-      <MonthlyCalendar 
-          days = {daysHeader}
-          style = {{width: "600px", height: "600px"}}
-      />
+      <Year />
     </div>
   );
 }

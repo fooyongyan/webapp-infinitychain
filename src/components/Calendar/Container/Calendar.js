@@ -5,7 +5,6 @@ import CalendarBody from './Body/Body'
 
 export default function Calendar (props) {
 
-
     return (
         <div className = "Calendar" style = {props.style}> 
             <Header> {props.title} </Header> 

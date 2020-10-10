@@ -1,0 +1,41 @@
+$highlighted-color:  #FF8552;
+
+.Day {
+    font-size: 80%;
+    border: none;
+    margin: 5px;
+    padding: 5px;
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 0px;
+    outline:none;
+    &:hover {
+        font-weight: bold;
+        outline: 1px solid black;
+    }
+
+    &__prevMonth {
+        @extend .Day;
+        color: lightgray;
+        background-color: darkgray;
+    }
+
+    &__selected {
+        @extend .Day;
+        background-color: $highlighted-color;
+        color: black;
+    }
+    
+    &__currentDay {
+        @extend .Day;
+        color: black;
+    }
+    
+    &__currentMonth {
+        @extend .Day;
+        color: black;
+        background-color: white;
+    }
+   
+    
+}

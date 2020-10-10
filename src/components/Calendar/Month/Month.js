@@ -1,7 +1,7 @@
 import React from 'react';
 import Day from './Day/Day';
 import moment from 'moment';
-import Calendar from '../Calendar/Calendar'
+import Calendar from '../Container/Calendar'
 
 /*********
  * 
@@ -34,14 +34,12 @@ export default function MonthlyCalendar (props) {
         {
             days.push( <Day 
                             key = {i} 
-                            isCurrentMonth={currMoment.month() + 1 === config.month } 
+                            value = {currMoment}
                             dateValue={currMoment.toDate()} 
-                            day={currMoment.date()} 
                             month={currMoment.month()} 
-                            dayOfMonth={i+1}
-                            isCurrentDay = { currMoment.format("YYYY-MM-DD") === moment().format("YYYY-MM-DD") }
-                            isHighlighted = {false}
+                            isHighlighted = {true}
                             clicked = {onDaysClicked}
+                            isCurrentMonth={currMoment.month() + 1 === config.month } 
                         />)
             currMoment = currMoment.clone().add(1, 'days');
         }

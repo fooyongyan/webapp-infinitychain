@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Calendar.scss'
-import Aux from '../../../hoc/Auxiliary/Auxiliary'
+import Aux from '../../../../hoc/Auxiliary/Auxiliary'
 
 export default function CalendarBody (props ) {
     return <Aux> 
