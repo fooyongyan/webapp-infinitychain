@@ -1,5 +1,5 @@
 import React from 'react';
-import './Day.css'
+import './Day.scss'
 import moment from 'moment';
 export default function Day (props) {
 
@@ -20,7 +20,7 @@ export default function Day (props) {
 
     return (
         <div className = "Day" style={style} onClick={onDayClicked}>
-            <div style = {{width: "100%", height: "100%"}}> {props.day} </div> 
+            <p style = {{width: "100%", height: "100%"}}> {props.day} </p> 
         </div>
     );
 }

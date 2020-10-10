@@ -1,5 +1,5 @@
 import React from 'react';
-import './Calendar.css'
+import './Calendar.scss'
 import Day from '../Day/Day';
 import moment from 'moment';
 
@@ -21,26 +21,6 @@ export default function Calendar (props) {
 
     const begin = (moment(`${config.year}-${config.month}`));
     
-    function back() {
-        let newMonth = config.month - 1;
-        const newConfig = {
-            ...config,
-            month: (newMonth < 1 ) ? 12 : newMonth, 
-            year:  (newMonth < 1 ) ? config.year-1 : config.year, 
-        }
-        setConfig(newConfig);
-    }
-    
-    function forward() {
-        let newMonth = config.month + 1;
-        const newConfig = {
-            ...config,
-            month: (newMonth > 12 ) ? 1 : newMonth, 
-            year:  (newMonth > 12 ) ? config.year+1 : config.year, 
-        }
-        setConfig(newConfig);
-    }
-
     function onDaysClicked( date, isHighlighted) {
         console.log(date, isHighlighted);   
     }
@@ -52,14 +32,14 @@ export default function Calendar (props) {
         for ( let i = 0; i < daysInCalender ; i++ ) 
         {
             days.push( <Day 
-                            key={i} 
+                            key = {i} 
                             isCurrentMonth={currMoment.month() + 1 === config.month } 
                             dateValue={currMoment.toDate()} 
                             day={currMoment.date()} 
                             month={currMoment.month()} 
                             dayOfMonth={i+1}
                             isCurrentDay = { currMoment.format("YYYY-MM-DD") === moment().format("YYYY-MM-DD") }
-                            isHighlighted = {i%2 == 0}
+                            isHighlighted = {i%2 === 0}
                             clicked = {onDaysClicked}
                         />)
             currMoment = currMoment.clone().add(1, 'days');

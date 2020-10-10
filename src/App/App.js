@@ -1,6 +1,6 @@
 import React from 'react';
 import Calendar from '../components/Calendar/Calendar';
-import './App.css';
+import './App.scss';
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Calendar 
-          style = {{width: "100%", height: "2000px"}}
+          style = {{width: "30%", height: "30%"}}
           days = {daysHeader}
       />
     </div>

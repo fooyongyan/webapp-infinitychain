@@ -1,17 +1,14 @@
 .Day {
     border: 1px solid black;
-    margin: 5px;
+    margin: 3px;
     background-color: lightgray;
     display: flex;
     flex-direction: column;
-    width: 90%;
-    height: 90%;
     min-width: 50px;
     min-height: 50px;
+    :hover {
+        font-weight: bold;
+        color: black;
+    }
+    
 }
-
-.Day :hover {
-    font-weight: bold;
-    color: black;
-}
-

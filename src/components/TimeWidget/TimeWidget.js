@@ -1,6 +1,6 @@
 import moment from 'moment';
 import React from 'react';
-import './TimeWidget.css'
+import './TimeWidget.scss'
 export default function TimeWidget ( props ) {
     const [currentDateTime, setCurrent] = new React.useState(moment().format("MMMM Do YYYY, HH:mm"));
     setInterval ( () => {
