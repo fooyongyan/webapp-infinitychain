@@ -13,4 +13,3 @@ export default function Body (props ) {
         </div>
     </Aux>
 }
-

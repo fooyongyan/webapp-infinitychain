@@ -1,0 +1,27 @@
+.Field {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    label {
+        font-size: 90%;
+    }
+    input {
+        padding: 5px;
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 2px;
+        margin-top: 3px;
+    }
+
+    input:focus {
+        background-color: lightgray;
+        border: 1px solid black;
+    }
+}
+
+.Field___Validation {
+    font-size: 80%;
+    font-style: italic;;
+    color: red;
+}
