@@ -5,7 +5,17 @@
     label {
         font-size: 90%;
     }
+
     input {
+        padding: 5px;
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 2px;
+        margin-top: 3px;
+    }
+
+    select {
         padding: 5px;
         color: black;
         background-color: white;
@@ -26,8 +36,41 @@
     color: red;
 }
 
-
 .Field___CharacterLength {
     font-size: 80%;
     text-align: right;
+}
+
+.Button {
+    padding: 10px;
+    font-size: 100%;
+    color: white;
+    width: 100%;
+    margin: 5px;
+    border-radius: 5px;
+    border: 0px;
+
+    &:hover {
+        color: grey;
+    }
+
+    &__Primary {
+        @extend .Button;
+        background-color: blue;
+    }
+    
+    &__Secondary {
+        @extend .Button;
+        background-color: gray;
+    }
+    
+    &__Warning {
+        @extend .Button;
+        background-color: red;
+    }
+    
+    &__Success {
+        @extend .Button;
+        background-color: green;
+    }
 }
